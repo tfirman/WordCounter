@@ -8,6 +8,7 @@ namespace WordCount.Models
     public class RepeatCounter
     {
         private string _outputPhrase;
+        private char[] _specialChars = " ,;:-.".ToCharArray();
 
         public string CountMatches (string checkWord, string given)
         {
@@ -29,35 +30,13 @@ namespace WordCount.Models
             char[] charWord = word.ToCharArray();
             for (int i=0; i<charWord.Length; i++)
             {
-                if (charWord[i] == ' ')
+                for (int j=0; j<6; j++)
                 {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
-                }
-                if (charWord[i] == ',')
-                {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
-                }
-                if (charWord[i] == ';')
-                {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
-                }
-                if (charWord[i] == ':')
-                {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
-                }
-                if (charWord[i] == '-')
-                {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
-                }
-                if (charWord[i] == '.')
-                {
-                    _outputPhrase = "Error: input was not a word";
-                    return false;
+                    if (charWord[i] == _specialChars[j])
+                    {
+                        _outputPhrase = "Error: input was not a word";
+                        return false;
+                    }
                 }
             }
             return true;

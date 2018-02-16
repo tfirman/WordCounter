@@ -23,5 +23,12 @@ namespace WordCounter.Tests
             string givenString = "I saw a cat";
             Assert.AreEqual("Error: input was not a word", testRepeatCounter.CountMatches ("a cat", givenString));
         }
+        [TestMethod]
+        public void CountsWord_TargetWordAndStringSame_Once()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "cat";
+            Assert.AreEqual("Once", testRepeatCounter.CountMatches ("cat", givenString));
+        }
     }
 }
