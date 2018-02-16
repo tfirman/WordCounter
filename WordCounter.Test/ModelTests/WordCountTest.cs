@@ -28,7 +28,14 @@ namespace WordCounter.Tests
         {
             RepeatCounter testRepeatCounter = new RepeatCounter();
             string givenString = "cat";
-            Assert.AreEqual("Once", testRepeatCounter.CountMatches ("cat", givenString));
+            Assert.AreEqual("once", testRepeatCounter.CountMatches ("cat", givenString));
+        }
+        [TestMethod]
+        public void CountsWord_TargetWordAndStringDifferent_Never()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "cat";
+            Assert.AreEqual("never", testRepeatCounter.CountMatches ("Cat", givenString));
         }
     }
 }

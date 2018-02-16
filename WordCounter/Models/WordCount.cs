@@ -17,6 +17,10 @@ namespace WordCount.Models
             {
                 return _outputPhrase;
             }
+            if (checkWord == given)
+            {
+                return "once";
+            }
             return _outputPhrase;
         }
 
