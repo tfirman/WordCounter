@@ -72,5 +72,12 @@ namespace WordCounter.Tests
             string givenString = "cat cat cat cat";
             Assert.AreEqual("4 times", testRepeatCounter.CountMatches ("cat", givenString));
         }
+        [TestMethod]
+        public void CountsWord_DoesEverytingForALongerString_Thrice()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "Cat cats cat scat scatter cats cat's cat; car cat";
+            Assert.AreEqual("thrice", testRepeatCounter.CountMatches ("cat", givenString));
+        }
     }
 }

@@ -63,6 +63,12 @@ namespace WordCount.Models
             } else if (matches == 2)
             {
                 _outputPhrase = "twice";
+            } else if (matches == 3)
+            {
+                _outputPhrase = "thrice";
+            } else if (matches >= 3)
+            {
+                _outputPhrase = matches.ToString() + " times";
             }
             return _outputPhrase;
         }
