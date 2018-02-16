@@ -38,5 +38,5 @@
 ** Output: "4 times"
 
 * All of the above should work together
-** Input: "cat", "Cat cats cat scat scatter cats cat's cat- car cat"
+** Input: "cat", "Cat cats cat scat scatter cats cat's cat; car cat"
 ** Output: "thrice"
