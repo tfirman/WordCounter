@@ -12,7 +12,7 @@ namespace WordCount.Models
 
         public string CountMatches (string checkWord, string given)
         {
-            _outputPhrase = "The quick brown fox jumps over the lazy dog";
+            _outputPhrase = "never";
             if(!ValidWord(checkWord))
             {
                 return _outputPhrase;

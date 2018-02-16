@@ -11,13 +11,13 @@
 ** Input: "a cat" , "I saw a cat"
 ** Output: "Error: input was not a word"
 
-* If the given string does not contain the exact word the app should find no matches
-** Input: "cat", "Cat"
-** Output: "never"
-
 * If the given string is exactly the same as the word the app should count it.
 ** Input: "cat", "cat"
 ** Output: "once"
+
+* If the given string does not contain the exact word the app should find no matches
+** Input: "cat", "Cat"
+** Output: "never"
 
 * If the given string includes the characters of the word, but with other non-(space, comma, semi-colon, colon, dash, or period) characters immediately adjacent, that should not be counted as a match
 ** Input: "cat", "cats"
