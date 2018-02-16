@@ -1,7 +1,14 @@
 # Word Counter
-##an app written in C# MVC that takes an input word and given string and checks the string for the number of appearances of that word.
 
-###Specifications:
+####an app that counts the number of times a word occurs in a phrase.
+
+#### By Tim Firman
+
+## Description
+
+_When the app is run, the local home page becomes a form that asks for a word and a phrase to evaluate.  The app verifies the word then checks the phrase to count the number of times the word occurs.  If the characters of the word occur but are adjacent to letters or symbols other than ( ,;:-.) characters that is not counted.  When a button is pressed, the user is shown a page that tells them the number of occurances of the word in the phrase._
+
+##Specifications:
 
 * There must be at least one character in the input word
 ** Input: "","The quick brown fox jumps over the lazy dog"
@@ -40,3 +47,21 @@
 * All of the above should work together
 ** Input: "cat", "Cat cats cat scat scatter cats cat's cat; car cat"
 ** Output: "thrice"
+
+## Setup/Installation Requirements
+
+_This software is a C# web server, and would need the obj and bin directories restored (dotnet restore) and built and run.  The latest version of this software is available at https://github.com/tfirman/WordCounter_
+
+## Known Bugs
+
+None Known
+
+## Technologies Used
+
+_This is a MVC C# server, using Razor and styled with Bootstrap._
+
+### License
+
+Copyright (c) 2018 **_Tim Firman_**
+
+This software is licensed under the GPL license.

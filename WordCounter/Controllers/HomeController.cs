@@ -11,5 +11,15 @@ namespace WordCount.Controllers
         {
             return View();
         }
+
+        [HttpPost("/result")]
+        public ActionResult Result()
+        {
+            string checkWord = Request.Form["word"];
+            string given = Request.Form["phrase"];
+            RepeatCounter myRepeatCounter = new RepeatCounter();
+            myRepeatCounter.CountMatches(checkWord, given);
+            return View("Result", myRepeatCounter);
+        }
     }
 }

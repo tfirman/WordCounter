@@ -18,12 +18,11 @@ namespace WordCounter.Tests
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
         [TestMethod]
-
-        public void Index_HasCorrectModelType_string()
+        public void Index_HasCorrectModelType_RepeatCounter()
         {
             ViewResult indexView = new HomeController().Index() as ViewResult;
             var result = indexView.ViewData.Model;
-            Assert.IsInstanceOfType(result, typeof(string));
+            Assert.IsInstanceOfType(result, typeof(RepeatCounter));
         }
     }
 }

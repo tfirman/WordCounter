@@ -10,6 +10,11 @@ namespace WordCount.Models
         private string _outputPhrase;
         private char[] _specialChars = " ,;:-.".ToCharArray();
 
+        public string GetOutput()
+        {
+            return _outputPhrase;
+        }
+
         public string CountMatches (string checkWord, string given)
         {
             int matches = 0;
