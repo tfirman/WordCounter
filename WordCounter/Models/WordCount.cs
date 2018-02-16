@@ -60,6 +60,9 @@ namespace WordCount.Models
             if (matches == 1)
             {
                 _outputPhrase = "once";
+            } else if (matches == 2)
+            {
+                _outputPhrase = "twice";
             }
             return _outputPhrase;
         }
@@ -67,20 +70,17 @@ namespace WordCount.Models
         public bool ValidWord (string word)
         {
             if (word == "")
-                {
-                    _outputPhrase = "Error: please input a word to compare";
-                    return false;
-                }
+            {
+                _outputPhrase = "Error: please input a word to compare";
+                return false;
+            }
             char[] charWord = word.ToCharArray();
             for (int i=0; i<charWord.Length; i++)
             {
-                for (int j=0; j<6; j++)
+                if(IsSpecialChar(charWord[i]))
                 {
-                    if (charWord[i] == _specialChars[j])
-                    {
-                        _outputPhrase = "Error: input was not a word";
-                        return false;
-                    }
+                    _outputPhrase = "Error: input was not a word";
+                    return false;
                 }
             }
             return true;

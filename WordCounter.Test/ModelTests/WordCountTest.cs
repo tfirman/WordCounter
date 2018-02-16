@@ -58,5 +58,19 @@ namespace WordCounter.Tests
             string givenString = "cat cat";
             Assert.AreEqual("twice", testRepeatCounter.CountMatches ("cat", givenString));
         }
+        [TestMethod]
+        public void CountsWord_TargetWordIsInStringThrice_Thrice()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "cat cat cat";
+            Assert.AreEqual("thrice", testRepeatCounter.CountMatches ("cat", givenString));
+        }
+        [TestMethod]
+        public void CountsWord_TargetWordIsInString4Times_4Times()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "cat cat cat cat";
+            Assert.AreEqual("4 times", testRepeatCounter.CountMatches ("cat", givenString));
+        }
     }
 }
