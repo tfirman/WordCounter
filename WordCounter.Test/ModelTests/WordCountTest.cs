@@ -34,22 +34,29 @@ namespace WordCounter.Tests
         public void CountsWord_TargetWordAndStringDifferent_Never()
         {
             RepeatCounter testRepeatCounter = new RepeatCounter();
-            string givenString = "cat";
-            Assert.AreEqual("never", testRepeatCounter.CountMatches ("Cat", givenString));
+            string givenString = "Cat";
+            Assert.AreEqual("never", testRepeatCounter.CountMatches ("cat", givenString));
         }
         [TestMethod]
         public void CountsWord_TargetWordIsInStringButNextToLetters_Never()
         {
             RepeatCounter testRepeatCounter = new RepeatCounter();
-            string givenString = "cat";
-            Assert.AreEqual("never", testRepeatCounter.CountMatches ("cats", givenString));
+            string givenString = "cats";
+            Assert.AreEqual("never", testRepeatCounter.CountMatches ("cat", givenString));
         }
         [TestMethod]
         public void CountsWord_TargetWordIsInStringNextToOkayChars_Once()
         {
             RepeatCounter testRepeatCounter = new RepeatCounter();
-            string givenString = "cat";
-            Assert.AreEqual("once", testRepeatCounter.CountMatches ("A cat slept.", givenString));
+            string givenString = "A cat slept.";
+            Assert.AreEqual("once", testRepeatCounter.CountMatches ("cat", givenString));
+        }
+        [TestMethod]
+        public void CountsWord_TargetWordIsInStringTwice_Twice()
+        {
+            RepeatCounter testRepeatCounter = new RepeatCounter();
+            string givenString = "cat cat";
+            Assert.AreEqual("twice", testRepeatCounter.CountMatches ("cat", givenString));
         }
     }
 }

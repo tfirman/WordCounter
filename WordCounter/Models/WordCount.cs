@@ -12,14 +12,54 @@ namespace WordCount.Models
 
         public string CountMatches (string checkWord, string given)
         {
+            int matches = 0;
             _outputPhrase = "never";
             if(!ValidWord(checkWord))
             {
                 return _outputPhrase;
             }
-            if (checkWord == given)
+            char[] charWord = checkWord.ToCharArray();
+            char[] charGiven = given.ToCharArray();
+            if (charWord.Length <= charGiven.Length)
             {
-                return "once";
+                for (int i = 0; i <= charGiven.Length - charWord.Length; i++)
+                {
+                    if (charGiven[i] == charWord[0])
+                    {
+                        if (i != 0)
+                        {
+                            if (!IsSpecialChar(charGiven[i-1]))
+                            {
+                                continue;
+                            }
+                        }
+                        bool notSame = false;
+                        for (int j = 1; j <= charWord.Length - 1; j++)
+                        {
+                            if (charGiven[i+j] != charWord[j])
+                            {
+                                notSame = true;
+                            }
+                        }
+                        if (notSame)
+                        {
+                            continue;
+                        }
+                        if (i + charWord.Length != charGiven.Length)
+                        {
+                            if (!IsSpecialChar(charGiven[i + charWord.Length]))
+                            {
+                                continue;
+                            }
+                        }
+                        matches++;
+                    }
+
+                }
+            }
+            if (matches == 1)
+            {
+                _outputPhrase = "once";
             }
             return _outputPhrase;
         }
@@ -44,6 +84,18 @@ namespace WordCount.Models
                 }
             }
             return true;
+        }
+
+        public bool IsSpecialChar (char ch)
+        {
+            for (int j=0; j<6; j++)
+            {
+                if (ch == _specialChars[j])
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
